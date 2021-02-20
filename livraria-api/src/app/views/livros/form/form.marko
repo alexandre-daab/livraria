@@ -1,0 +1,87 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+
+        <link rel="stylesheet" href="/estatico/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/estatico/css/fontawesome.min.css" />
+        <link rel="stylesheet" href="/estatico/css/casadocodigo.css" />
+</head>
+    <body>
+
+        <header class="cabecalhoPrincipal">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="cabecalhoPrincipal-navegacao col-12">
+                    </div>
+                </div>
+            </div>
+        </header>
+    <main class="conteudoPrincipal">
+        <div class="container">
+            <h1>Cadastrar Livros</h1>
+
+            <div if(data.errosValidacao)>
+                <div for(erro in data.errosValidacao)>
+                    ${erro.param} - ${erro.msg}
+                </div>
+            </div>
+
+            <form action="/livros" method="post">
+
+                <div if(data.livro.id)>
+                    <input type="hidden" name="_method" value="PUT" />
+                    <input type="hidden" id="id" name="id" value="${data.livro.id}" />
+                </div>
+                <div class="form-group">
+                    <label for="titulo">Titulo:</label>
+                    <input type="text" id="titulo" name="titulo" placeholder="informe o titulo" value="${data.livro.titulo}" class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <label for="subtitulo">Sub Titulo:</label>
+                    <input type="text" id="subtitulo" name="subtitulo" placeholder="informe o subtitulo" value="${data.livro.subtitulo}" class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <label for="sinopse">Sinopse:</label>
+                    <textarea cols="25" rows="20"  id="sinopse" name="sinopse" placeholder="fale sobre o livro"  class="form-control">${data.livro.sinopse}</textarea>
+                </div>
+                <div class="form-group">
+                    <label for="isbn">ISBN:</label>
+                    <input type="text" id="isbn" name="isbn" placeholder="informe o isbn" value="${data.livro.isbn}" class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <label for="edicao">Edição:</label>
+                    <input type="text" id="edicao" name="edicao" placeholder="informe a edição" value="${data.livro.edicao}" class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <label for="ano">Ano:</label>
+                    <input type="text" id="ano" name="ano" placeholder="informe o ano da edicao" value="${data.livro.ano}" class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <label for="formato">Formato:</label>
+                    <select id="formato" name="formato" class="form-control"> 
+                        <option value="">Informe o formato</option>
+                        <div for(formato in data.formatos)>
+                            <div if(formato.id == data.livro.formato)>
+                                <option value="${formato.id}" selected>${formato.nome}</option>
+                            </div>
+                            <div else>    
+                            <option value="${formato.id}">${formato.nome}</option>
+                            </div>
+                        </div>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="preco">Preço:</label>
+                    <input type="text" id="preco" 
+                        name="preco" 
+                        placeholder="Informe o valor de compra" 
+                        value="${new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(data.livro.preco)}" 
+                        class="form-control" />
+                </div>
+
+                <input type="submit" value="Salvar"  class="btn btn-block btn-primary" />
+            </form>
+        </div>
+    </main>    
+    </body>
+</html>

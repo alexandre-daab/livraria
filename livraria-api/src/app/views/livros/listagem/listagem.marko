@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+
+        <link rel="stylesheet" href="/estatico/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/estatico/css/fontawesome.min.css" />
+        <link rel="stylesheet" href="/estatico/css/casadocodigo.css" />
+    </head>
+    <body>
+        <h1>Listagem de Livros</h1>
+        <table id='livros' class="table table-striped table-bordered table-hover">
+            <tr>
+                <td>ID</td>
+                <td>Título</td>
+                <td>SubTítulo</td>
+                <td>Sinopse</td>
+                <td>ISBN</td>
+                <td>Edição</td>
+                <td>Ano</td>
+                <td>Preço</td>
+            </tr>
+            <tr id="livro_${livro.id}"  for(livro in data.livros)>
+                <td>${livro.id}</td>
+                <td>${livro.titulo}</td>
+                <td>${livro.subtitulo}</td>
+                <td>${livro.sinopse}</td>
+                <td>${livro.isbn}</td>
+                <td>${livro.edicao}</td>
+                <td>${livro.ano}</td>
+                <td style="text-align:right;">${new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(livro.preco)}</td>
+                <td><a href="/livros/cadastrar/${livro.id}" class="fas fa-pencil-alt" title="Editar"></a></td>
+                <td><a href="#" data-ref="${livro.id}" data-type="remocao" class="fas fa-trash-alt" title="Deletar"></a></td>
+
+            </tr>
+        </table>
+        <a href="/livros/cadastrar">Inserir Novo Livro</a>
+        <script src="/estatico/js/remove-livro.js"></script>        
+
+    </body> 
+</html>
