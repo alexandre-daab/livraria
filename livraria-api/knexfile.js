@@ -1,34 +1,36 @@
 // Update with your config settings.
 
 module.exports = {
-
   development: {
-    client: 'mysql',
+    client: "mysql2",
     connection: {
-      host : '127.0.0.1',
-      user : 'alexandreb',
-      password : 'alexandreb',
-      database : 'livraria'
+      host: "localhost",
+      port: 3306,
+      user: "alexandreb",
+      password: "alexandreb",
+      database: "livraria"
     }
   },
 
   staging: {
-    client: 'mysql',
+    client: "mysql2",
     connection: {
-      host : '127.0.0.1',
-      user : 'alexandreb',
-      password : 'alexandreb',
-      database : 'livraria'
+      host: "localhost",
+      port: 3306,
+      user: "alexandreb",
+      password: "alexandreb",
+      database: "livraria"
     }
   },
 
   production: {
-    client: 'mysql',
+    client: "mysql2",
     connection: {
-      host : '127.0.0.1',
-      user : 'alexandreb',
-      password : 'alexandreb',
-      database : 'livraria'
+      host: "localhost",
+      port: 3306,
+      user: "alexandreb",
+      password: "alexandreb",
+      database: "livraria"
     }
   }
-};
+}

@@ -19,7 +19,7 @@
     "knex": "^0.21.6",
     "marko": "4.13.4-1",
     "method-override": "^3.0.0",
-    "mysql": "^2.18.1",
+    "mysql2": "^2.3.3",
     "passport": "0.4.0",
     "passport-local": "1.0.0",
     "sqlite3": "^5.0.0",
