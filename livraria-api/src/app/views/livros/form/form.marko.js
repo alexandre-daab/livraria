@@ -62,7 +62,7 @@ function render(input, out, __component, component, state) {
     marko_escapeXmlAttr(data.livro.edicao) +
     "\" class=\"form-control\"></div><div class=\"form-group\"><label for=\"ano\">Ano:</label><input type=\"text\" id=\"ano\" name=\"ano\" placeholder=\"informe o ano da edicao\" value=\"" +
     marko_escapeXmlAttr(data.livro.ano) +
-    "\" class=\"form-control\"></div><div class=\"form-group\"><label for=\"formato\">Formato:</label><select id=\"formato\" name=\"formato\" class=\"form-control\"> <option value=\"\">Informe o formato</option>");
+    "\" class=\"form-control\"></div><div class=\"form-group\"><label for=\"formato\">Formato:</label><select id=\"formato\" name=\"formato\" class=\"form-control\"><option value=\"\">Informe o formato</option>");
 
   var for__44 = 0;
 
@@ -78,7 +78,7 @@ function render(input, out, __component, component, state) {
         marko_escapeXml(formato.nome) +
         "</option></div>");
     } else {
-      out.w("<div> <option value=\"" +
+      out.w("<div><option value=\"" +
         marko_escapeXmlAttr(formato.id) +
         "\">" +
         marko_escapeXml(formato.nome) +
@@ -93,7 +93,7 @@ function render(input, out, __component, component, state) {
       style: "currency",
       currency: "BRL"
     })).format(data.livro.preco)) +
-    "\" class=\"form-control\"></div><input type=\"submit\" value=\"Salvar\" class=\"btn btn-block btn-primary\"></form></div></main> ");
+    "\" class=\"form-control\"></div><input type=\"submit\" value=\"Salvar\" class=\"btn btn-block btn-primary\"></form></div></main>");
 
   init_components_tag({}, out);
 
